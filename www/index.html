@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restrictions des Vues</title>
+  </head>
+  <body>
+    <h1>Restrictions des Vues Lovelace</h1>
+    <form id="restrictionForm">
+      <label>
+        <input type="checkbox" name="view1" value="vue1" />
+        Vue 1
+      </label>
+      <label>
+        <input type="checkbox" name="view2" value="vue2" />
+        Vue 2
+      </label>
+      <button type="submit">Enregistrer</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("restrictionForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const restrictions = {};
+          document
+            .querySelectorAll("input[type=checkbox]")
+            .forEach((checkbox) => {
+              restrictions[checkbox.value] = checkbox.checked;
+            });
+
+          fetch("/save", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(restrictions),
+          });
+        });
+    </script>
+  </body>
+</html>

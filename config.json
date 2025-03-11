@@ -1,0 +1,17 @@
+{
+  "name": "Restrict Lovelace Views",
+  "version": "1.0.0",
+  "slug": "restrict_views",
+  "description": "Ajoute une interface pour restreindre l'accès aux vues Lovelace.",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 5000,
+  "ingress_stream": false,
+  "panel_icon": "mdi:lock",
+  "panel_title": "Restrictions Lovelace",
+  "map": ["config"],
+  "options": {},
+  "schema": {}
+}
